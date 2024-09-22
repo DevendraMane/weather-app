@@ -1,0 +1,214 @@
+/* style.css */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+* {
+  font-family: "Merriweather Sans";
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* font-family: Arial, sans-serif; */
+}
+
+body {
+    font-family: "Merriweather Sans";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f5f5f5;
+  }
+  
+  .main_card {
+    display: flex;
+    position: relative;
+    width: 250px;
+    height: 400px;
+    background-color: #e0e7f5;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 20px;
+    overflow: hidden;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+  }
+  
+  .wav {
+    position: absolute;
+    bottom: 0;
+    width: 120%; /* Slightly wider to cover edge gaps */
+    height: 150px; /* Increased height to fill the bottom space */
+    background: #d3e0f2;
+    border-radius: 50%;
+    opacity: 0.7; /* Slight transparency to layer them nicely */
+  }
+  
+  .wav.-one {
+    bottom: 40px;
+    animation: wave 4s ease-in-out infinite; /* Slower for more relaxed effect */
+  }
+  
+  .wav.-two {
+    bottom: 20px;
+    animation: wave 3s ease-in-out infinite;
+  }
+  
+  .wav.-three {
+    bottom: 0;
+    animation: wave 2s ease-in-out infinite; /* Fastest wave */
+  }
+  
+  @keyframes wave {
+    0% {
+      transform: translateX(-30%) translateY(50%);
+    }
+    50% {
+      transform: translateX(30%) translateY(50%);
+    }
+    100% {
+      transform: translateX(-30%) translateY(50%);
+    }
+  }
+  
+  .icon {
+    font-size: 60px;
+    margin-top: 30px;
+    color: #f1c40f;
+  }
+  
+  .info {
+    margin-top: 30px;
+  }
+  
+  .location {
+    font-size: 18px;
+    font-weight: bold;
+    color: #2c3e50;
+  }
+  
+  .data_time {
+    font-size: 12px;
+    color: #7f8c8d;
+    margin: 5px 0;
+  }
+  
+  .temp {
+    font-size: 48px;
+    font-weight: bold;
+    color: #34495e;
+  }
+  
+  .min_max_temp {
+    font-size: 14px;
+    color: #7f8c8d;
+  }
+
+  .fa-solid{
+    animation: wave 4s cubic-bezier(0.5, 0.38, 0.34, 0.35) infinite;
+    position: relative;
+    bottom: 10px;
+  }
+
+  .fa-sun {
+    /* font-size: 60px; */
+    color: #f1c40f;
+    /* animation: zoomInOut 3s ease-in-out infinite; Add animation */
+}
+
+.fa-regular {
+  font-size: 60px;
+    animation: zoomInOut 3s ease-in-out infinite;
+}
+
+@keyframes zoomInOut {
+    0% {
+        transform: scale(1); /* Start at normal size */
+    }
+    50% {
+        transform: scale(1.3); /* Scale up to 130% */
+    }
+    100% {
+        transform: scale(1); /* Back to normal size */
+    }
+}
+  
+/* .search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+} */
+
+.search input {
+  width: 300px; /* Adjust as needed */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 50px; /* Capsule shape */
+  background-color: #e0e7f5; /* Color */
+  color: #2c3e50; /* Text color */
+  font-size: 16px;
+  outline: none;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow */
+}
+
+.search input::placeholder {
+  color: #7f8c8d; /* Placeholder color */
+}
+
+.all{
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6vh;
+}
+
+.heading {
+  font-size: 5em;
+  font-weight: bold;
+  color: #2c3e50;
+  position: relative; /* Position for the rain effect */
+  overflow: hidden; /* Hide overflow from the rain */
+}
+
+.heading {
+  font-size: 5em;
+  font-weight: bold;
+  color: #2c3e50;
+  position: relative; /* Position for the rain effect */
+  overflow: hidden; /* Hide overflow from the rain */
+}
+
+.rain {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 100px; /* Height of rain drops */
+  background: rgba(255, 255, 255, 0.8); /* Color of rain */
+  animation: fall 0.5s linear infinite; /* Animation */
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+/* Create multiple rain drops */
+@keyframes rain {
+  0% {
+    top: -100%;
+  }
+  100% {
+    top: 100%;
+  }
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Weather App</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="all">
+      <div class="heading">Weather App</div>
+      <div class="search">
+        <input type="text" id="searchInput" placeholder="Search..." />
+      </div>
+
+      <div class="main_card">
+        <div class="wav -one"></div>
+        <div class="wav -two"></div>
+        <div class="wav -three"></div>
+
+        <div id="icon">
+          <i class="fa-regular fa-sun" style="color: #f1c40f"></i>
+        </div>
+
+        <div class="info">
+          <h2 class="location country">
+            <i class="fa-solid fa-person" style="color: #2c3e50"></i>
+            {%location%},{%country%}
+          </h2>
+          <p id="date_time">WeD | OCT 23 | 12:20PM</p>
+          <h1 class="temp">{%tempVal%}°C</h1>
+          <h3 class="min_max_temp">Min {%tempmin%}°C | Max {%tempmax%}°C</h3>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
