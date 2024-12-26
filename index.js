@@ -45,9 +45,11 @@ const server = http.createServer((req, res) => {
         const objData = JSON.parse(chunk);
         const arrData = [objData];
 
+        //? replaceVal() replaces placeholders (like {%tempVal%}) in the homeFile HTML template with actual weather data (value).
         const realTimeData = arrData
           .map((value) => replaceVal(homeFile, value))
           .join("");
+        // console.log("***", arrData);
         res.writeHead(200, { "Content-Type": "text/html" });
         res.write(realTimeData);
       })
