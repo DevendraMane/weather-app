@@ -1,0 +1,4 @@
+api key forweather app:2ded32c43a985fd4070907b769ac3f51
+
+api for city name: https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
+https://api.openweathermap.org/data/2.5/weather?q=Akola&appid=2ded32c43a985fd4070907b769ac3f51
