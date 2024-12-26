@@ -38,6 +38,7 @@ const getCurrentTime = () => {
     "Nov",
     "Dec",
   ];
+
   const currentTime = new Date();
   let month = months[currentTime.getMonth()];
   let day = currentTime.getDate();
@@ -55,6 +56,7 @@ const getCurrentTime = () => {
   }
   return `${month} ${day} | ${hour}:${minute}${period}`;
 };
+
 inputField.addEventListener("keypress", function (e) {
   if (e.key === "Enter") {
     const city = inputField.value;
@@ -88,6 +90,7 @@ inputField.addEventListener("keypress", function (e) {
 // by defaut show the current timing...
 curData.innerHTML = getCurrentDay() + " | " + getCurrentTime();
 
+// ==========================================================//
 // for the heading animation:
 const heading = document.querySelector(".heading");
 let rainDropCount = 0; // Counter for rain drops
