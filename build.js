@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const { minify } = require("html-minifier");
+const postcss = require("postcss");
 const cssnano = require("cssnano");
 const terser = require("terser");
 
@@ -8,7 +9,7 @@ const terser = require("terser");
 const inputDir = path.resolve(__dirname);
 const outputDir = path.join(__dirname, "dist");
 
-// Create dist folder
+// Ensure the output directory exists
 if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir);
 
 // Minify HTML
@@ -19,16 +20,29 @@ const minifiedHtml = minify(html, {
 });
 fs.writeFileSync(path.join(outputDir, "index.html"), minifiedHtml);
 
-// Minify CSS
-const css = fs.readFileSync(path.join(inputDir, "style.css"), "utf-8");
-cssnano.process(css, { from: undefined }).then((result) => {
-  fs.writeFileSync(path.join(outputDir, "style.css"), result.css);
-});
+// Minify CSS using PostCSS and CSSNano
+(async () => {
+  try {
+    const css = fs.readFileSync(path.join(inputDir, "style.css"), "utf-8");
+    const result = await postcss([cssnano()]).process(css, { from: undefined });
+    fs.writeFileSync(path.join(outputDir, "style.css"), result.css);
+    console.log("CSS successfully minified!");
+  } catch (error) {
+    console.error("Error while minifying CSS:", error);
+  }
+})();
 
-// Minify JavaScript
-const js = fs.readFileSync(path.join(inputDir, "script.js"), "utf-8");
-terser.minify(js).then((result) => {
-  fs.writeFileSync(path.join(outputDir, "script.js"), result.code);
-});
+// Minify JavaScript using Terser
+(async () => {
+  try {
+    const js = fs.readFileSync(path.join(inputDir, "script.js"), "utf-8");
+    const result = await terser.minify(js);
+    if (result.error) throw result.error;
+    fs.writeFileSync(path.join(outputDir, "script.js"), result.code);
+    console.log("JavaScript successfully minified!");
+  } catch (error) {
+    console.error("Error while minifying JavaScript:", error);
+  }
+})();
 
-console.log("Build completed! Files are in the dist folder.");
+console.log("Build process completed! Files are in the dist folder.");
