@@ -4,8 +4,8 @@
     "requests": "^0.3.0"
   },
   "scripts": {
-   "dev": "node --watch server.js",
-   "start": "node server.js"
+   "dev": "node --watch index.js",
+   "start": "node index.js"
   },
   "devDependencies": {
     "cssnano": "^7.0.6",
