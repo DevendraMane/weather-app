@@ -3,6 +3,10 @@
     "postcss": "^8.4.49",
     "requests": "^0.3.0"
   },
+  "scripts": {
+   "dev": "node --watch server.js",
+   "start": "node server.js"
+  },
   "devDependencies": {
     "cssnano": "^7.0.6",
     "html-minifier": "^4.0.0",
